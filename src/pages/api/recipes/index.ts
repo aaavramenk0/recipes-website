@@ -1,5 +1,6 @@
 // GET API request sample: http://localhost:3000/api/recipes
-// POST API request sample: http://localhost:3000/api/recipes and include body json sample: 
+// POST API request sample: http://localhost:3000/api/recipes and include body json sample: { "name": "Recipe Name", "ingredients": ["Ingredient 1", "Ingredient 2", "Ingredient 3"], "instructions": ["Step 1: Do this", "Step 2: Do that"], "image": "https://example.com/recipe-image.jpg", "rating": 4.5, "prep_time": "30 minutes", "cook_time": "1 hour", "total_time": "1 hour 30 minutes", "servings": 4, "nutrition": { "calories": 300, "fat": 15, "carbs": 40, "protein": 10 } }
+
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { connect } from "../../../utils/connection";
