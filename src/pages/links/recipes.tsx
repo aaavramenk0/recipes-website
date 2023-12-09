@@ -37,7 +37,7 @@ function Recipes({ recipes }: IndexProps) {
 // Get props for server side rendering
 export async function getServerSideProps() {
     // get recipes data from the API
-    const res = await fetch(process.env.RECIPE_GET as string)
+    const res = await fetch(process.env?.RECIPE_GET as string)
     const recipes = await res.json();
 
     // return props

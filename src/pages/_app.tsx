@@ -13,7 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <Head>
       <title>Recipes website</title>
         <meta charSet="utf-8" />
-        <Link rel="icon" href="/favicon.ico" type="image/x-icon" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <RootLayout>
