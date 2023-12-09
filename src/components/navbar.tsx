@@ -1,12 +1,14 @@
 import { Fragment } from 'react'
+import recipe64 from '../icons/recipe64.png'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'Recipes catalog', href: '/links/recipes', current: false },
+  { name: 'Our authors', href: '/links/authors', current: false },
+  { name: 'Add your recipe', href: '/add-recipe', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -34,10 +36,12 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
+                  <Image
+                    width = { 64 }
+                    height = { 64 }
+                    className = "h-8 w-auto"
+                    src = { recipe64 }
+                    alt = "Logo of the company"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">

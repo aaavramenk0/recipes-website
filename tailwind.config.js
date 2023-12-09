@@ -9,7 +9,15 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      container: {
+        center: true,
+        padding: "15px",
+      },
+      colors: {
+        accent: "#f94c25",
+      },
+    },
     fontSize: {
       "28px" : "28px",
     },

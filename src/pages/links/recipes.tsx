@@ -1,4 +1,3 @@
-
 import { Recipe } from "@/utils/types";
 import Link from "next/link";
 
