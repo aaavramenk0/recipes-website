@@ -32,7 +32,7 @@ export const connect = async () => {
 
     // recipes schema
     const recipeSchema = new mongoose.Schema({
-        recipeName: String,
+        name: String,
         author: {
             name: String,
             email: String
