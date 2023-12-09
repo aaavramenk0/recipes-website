@@ -16,7 +16,7 @@ function Recipes({ recipes }: IndexProps) {
     <div className="grid grid-cols-3 gap-5 mt-5 sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4">
       {recipes?.map((recipe) => (
         <div key={recipe?._id}>
-          <Link href='/'>
+          <Link href={ `/links/recipes/${recipe._id}` }>
             <div className="text-center py-3">
              <Image src={recipe?.image} alt={recipe?.name} width={300} height={300} className="w-[75%] h-78 object-cover m-auto rounded-3xl" />
               <h3 className=" text-[20px] font-medium">{recipe?.name}</h3>
