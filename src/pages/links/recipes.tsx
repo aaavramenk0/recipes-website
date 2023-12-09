@@ -15,14 +15,14 @@ function Recipes({ recipes }: IndexProps) {
     <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">Recipes catalog</h1>  
     <div className="grid grid-cols-3 gap-5 mt-5 sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4">
       {recipes?.map((recipe) => (
-        <div key={recipe._id}>
-          <Link href={`/recipes/${recipe._id}`}>
+        <div key={recipe?._id}>
+          <Link href='/'>
             <div className="text-center py-3">
-             <Image src={recipe.image} alt={recipe.name} width={300} height={300} className="w-[75%] h-78 object-cover m-auto rounded-3xl" />
-              <h3 className=" text-[20px] font-medium">{recipe.name}</h3>
+             <Image src={recipe?.image} alt={recipe?.name} width={300} height={300} className="w-[75%] h-78 object-cover m-auto rounded-3xl" />
+              <h3 className=" text-[20px] font-medium">{recipe?.name}</h3>
               <div className="text-[14px] flex flex-row justify-center items-center gap-[10px]">
-                <p>Rating: {recipe.rating}</p>
-                <ReactStars edit={false} count={5} value={Math.round(recipe.rating)} size={20} color2={'#ffd700'} />
+                <p>Rating: {recipe?.rating}</p>
+                <ReactStars edit={false} count={5} value={Math.round(recipe?.rating)} size={20} color2={'#ffd700'} />
               </div>
             </div>
           </Link>
