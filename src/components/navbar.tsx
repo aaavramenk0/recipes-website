@@ -3,12 +3,13 @@ import recipe64 from '../icons/recipe64.png'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Recipes catalog', href: '/links/recipes', current: false },
   { name: 'Our authors', href: '/links/authors', current: false },
-  { name: 'Add your recipe', href: '/add-recipe', current: false },
+  { name: 'Add your recipe', href: '/links/add-recipe', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -47,9 +48,10 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
+                        
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
@@ -59,7 +61,7 @@ export default function Navbar() {
                         } 
                       >
                         {item.name}
-                      </a>
+                      </Link>
                       
                     ))}
                   </div>

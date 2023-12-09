@@ -4,10 +4,10 @@ import recipe64 from '../icons/recipe64.png'
 export default () => {
 
     const footerNavs = [
-        { href: 'javascript:void()', name: 'Home' },
-        { href: 'javascript:void()', name: 'Recipes catalog' },
-        { href: 'javascript:void()', name: 'Our authors' },
-        { href: 'javascript:void()', name: 'Add your recipe' }
+        { href: '/', name: 'Home' },
+        { href: '/links/recipes', name: 'Recipes catalog' },
+        { href: '/links/authors', name: 'Our authors' },
+        { href: '/links/add-recipe', name: 'Add your recipe' }
     ]
 
     return (
