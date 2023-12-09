@@ -3,12 +3,13 @@ import '@/styles/globals.css'
 import RootLayout from '../components/layout'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import recipe16 from '../icons/recipe16.png'
 import Link from 'next/link'
+import { SpeedInsights } from "@vercel/speed-insights/next"
  
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <SpeedInsights />
     <Head>
       <title>Recipes website</title>
         <meta charSet="utf-8" />
