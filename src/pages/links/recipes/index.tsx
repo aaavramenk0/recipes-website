@@ -5,7 +5,7 @@ import ReactStars from 'react-stars'
 
 // define the components props
 interface IndexProps {
-    recipes: Array<Recipe>;
+  recipes: Array<Recipe>;
 }
 
 // define the page component
