@@ -13,7 +13,7 @@ function Recipes({ recipes }: IndexProps) {
   return (
     <> 
     <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">Recipes catalog</h1>  
-    <div className="grid grid-cols-3 gap-5 mt-5 sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4">
+    <div className="grid grid-cols-3 gap-5 mt-5 sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4 max-w-xs:grid-cols-1 max-w-xs:gap-1">
       {recipes?.map((recipe) => (
         <div key={recipe?._id}>
           <Link href={ `/links/recipes/${recipe._id}` }>
