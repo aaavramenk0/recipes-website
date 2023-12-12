@@ -12,8 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <SpeedInsights />
       <Head>
+        <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
         <title>Recipes website</title>
-          <meta charSet="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <NextUIProvider>
