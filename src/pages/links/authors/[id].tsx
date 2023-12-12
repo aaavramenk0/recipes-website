@@ -20,7 +20,7 @@ function AuthorPage(props : Props) {
         <>
             <Avatar icon={<AvatarIcon />} size="lg" className="m-auto mt-4" />
             <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">{ author?.name }</h1>
-            <Link href={`mailto:${author?.email}`} className="text-[30px] text-center">Email: { author?.email }</Link>
+            <Link href={`mailto:${author?.email}`} className="text-[30px] text-center underline m-auto">{ author?.email }</Link>
         </>
     )
 }
