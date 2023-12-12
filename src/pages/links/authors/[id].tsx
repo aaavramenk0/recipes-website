@@ -1,4 +1,6 @@
 import { Author } from "@/utils/types"
+import { Avatar, AvatarIcon } from "@nextui-org/react"
+import Link from "next/link"
 import { useState } from "react"
 
 
@@ -16,8 +18,9 @@ function AuthorPage(props : Props) {
     // return JSX
     return (
         <>
-            <h1> Author {author?.name }</h1>
-            { author?._id}
+            <Avatar icon={<AvatarIcon />} size="lg" className="m-auto mt-4" />
+            <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">{ author?.name }</h1>
+            <Link href={`mailto:${author?.email}`} className="text-[30px] text-center">Email: { author?.email }</Link>
         </>
     )
 }
