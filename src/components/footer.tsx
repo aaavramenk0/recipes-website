@@ -27,8 +27,8 @@ export default () => {
             <ul className="items-center justify-center mt-[15px] space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
                 {
                     footerNavs.map((item, idx) => (
-                        <li className=" hover:font-bold hover:underline font-semibold">
-                            <a key={idx} href={item.href}>
+                        <li key={idx} className=" hover:font-bold hover:underline font-semibold">
+                            <a href={item.href}>
                                 { item.name }
                             </a>
                         </li>

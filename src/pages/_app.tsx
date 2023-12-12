@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Link from 'next/link'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { NextUIProvider } from '@nextui-org/react'
  
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -15,9 +16,11 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <RootLayout>
-        <Component {...pageProps} />
-      </RootLayout>
+      <NextUIProvider>
+        <RootLayout>
+          <Component {...pageProps} />
+        </RootLayout>
+      </NextUIProvider>
     </>
   )
 }
