@@ -1,5 +1,5 @@
-// GET API request sample: http://localhost:3000/api/author
-// POST API request sample: http://localhost:3000/api/author and include body json sample: 
+// GET API request sample: http://localhost:3000/api/authors
+// POST API request sample: http://localhost:3000/api/authors and include body json sample: 
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { connect } from "../../../utils/connection";

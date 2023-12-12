@@ -10,14 +10,14 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <SpeedInsights />
-    <Head>
-      <title>Recipes website</title>
-        <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <RootLayout>
-      <Component {...pageProps} />
+      <Head>
+        <title>Recipes website</title>
+          <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <RootLayout>
+        <Component {...pageProps} />
       </RootLayout>
-      </>
+    </>
   )
 }

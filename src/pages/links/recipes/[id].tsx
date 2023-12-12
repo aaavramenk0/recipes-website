@@ -6,7 +6,6 @@ import { useState } from "react"
 import ReactStars from "react-stars"
 
 // define Prop Interface
-
 interface Props {
     recipe: Recipe
     url: string
@@ -20,7 +19,7 @@ function RecipePage(props: Props) {
     return (
         <div className="m-10">
             <Image src={recipe?.image} alt={recipe?.name} width={300} height={300} className="w-[400px] h-78 object-cover m-auto rounded-3xl" />
-            <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">{recipe.name}</h1>
+            <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">{recipe?.name}</h1>
             <div className="text-[20px] flex flex-row justify-center items-center gap-[10px] mt-[-10px]">
                 <p>Rating: {recipe?.rating}</p>
                 <ReactStars edit={false} count={5} value={Math.round(recipe?.rating)} size={30} color2={'#ffd700'} />
@@ -49,12 +48,12 @@ function RecipePage(props: Props) {
 // define server-side props
 export async function getServerSideProps(context: any) {
     // fetch the recipe, the param was recieved via context.query.id
-    const res = await fetch(process.env?.RECIPE_GET + "/" + context.query.id)
+    const res = await fetch(process.env?.API_GET + "/recipes/" + context.query.id)
     const recipe = await res.json()
 
     // return the Server Side Props the recipe and the url from out env variables for frontend api calls
     return {
-        props: { recipe, url: process.env?.RECIPE_GET },
+        props: { recipe, url: process.env?.API_GET + "/recipes" },
     }
 }
 
