@@ -3,11 +3,11 @@ import '@/styles/globals.css'
 import RootLayout from '../components/layout'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import Link from 'next/link'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { NextUIProvider } from '@nextui-org/react'
+import NextNProgress from 'nextjs-progressbar'
  
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {  
   return (
     <>
       <SpeedInsights />
@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <NextUIProvider>
         <RootLayout>
+          <NextNProgress color="#467529" />
           <Component {...pageProps} />
         </RootLayout>
       </NextUIProvider>
