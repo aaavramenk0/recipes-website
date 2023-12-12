@@ -1,7 +1,6 @@
 import { Author } from "@/utils/types";
 import Link from "next/link";
 import React from "react";
-import {Avatar} from "@nextui-org/react";
 
 // define the components props
 interface IndexProps {
@@ -17,8 +16,6 @@ const Authors = ({ authors }: IndexProps) => {
                     <div key={author?._id}> 
                         <Link href={ `/links/authors/${author._id}` }>
                             <div className="text-center py-3">
-                                <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-                                <Avatar name="Junior" />
                                 <h3 className=" text-[20px] font-medium">{author?.name}</h3>
                             </div>
                         </Link>
