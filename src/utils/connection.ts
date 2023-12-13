@@ -13,7 +13,7 @@ export const connect = async () => {
 
     // user schema
     const userSchema = new mongoose.Schema({
-        name: {
+        username: {
             type: String,
             required: true
         },

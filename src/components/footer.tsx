@@ -37,7 +37,7 @@ export default () => {
             </ul>
             <div className="mt-[15px] items-center justify-between sm:flex">
                 <div className="mt-4 sm:mt-0 w-[100%] text-center">
-                    &copy; Developed by Avramenko Oleksandr in 2023
+                    &copy; Developed by Oleksandr Avramenko in 2023
                 </div>
             </div>
             <style jsx>{`

@@ -1,7 +1,6 @@
 import { Recipe } from "@/utils/types"
+import { Link } from "@nextui-org/react"
 import Image from "next/image"
-import Link from "next/link"
-import { GoArrowRight } from "react-icons/go";
 import { useState } from "react"
 import ReactStars from "react-stars"
 
@@ -25,13 +24,16 @@ function RecipePage(props: Props) {
                 <ReactStars edit={false} count={5} value={Math.round(recipe?.rating)} size={30} color2={'#ffd700'} />
             </div>
 
-            <h2 className="text-[30px] text-center font-bold">Ingredients for { recipe?.servings } servings</h2>
-            <p className="text-[14px] text-center font-normal italic">(Click on product to find it in Walmart)</p>
-            <ol className="text-[20px] leading-10 text-center">
+            {/* <h2 className="text-[30px] text-center font-bold">Ingredients for { recipe?.servings } servings</h2> */}
+            <h2 className="text-[30px] text-center font-bold">Ingredients</h2>
+            {/* <p className="text-[14px] text-center font-normal italic">(Click on product to find it in Walmart)</p> */}
+            <ul className="text-[20px] leading-10 text-center">
                 {recipe?.ingredients.map((ingredient, index) => (
-                    <li key={index}><Link className=" underline w-auto" target="_blank" href={`https://www.walmart.com/search/?cat_id=0&query=${ingredient}`}>{ ingredient }</Link> </li>
+                    <li key={index}>
+                        <Link isExternal showAnchorIcon color="foreground" size="lg" isBlock href={`https://www.walmart.com/search/?cat_id=0&query=${ingredient}`}>{ingredient}</Link>
+                    </li>
                 ))}
-            </ol> 
+            </ul> 
             <h2 className="text-[30px] font-bold text-center">Instructions</h2>
             <ol className="text-center leading-10 text-[20px]">
                 {recipe?.instructions.map((direction, index) => (

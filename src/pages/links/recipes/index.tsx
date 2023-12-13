@@ -1,5 +1,5 @@
 import { Recipe } from "@/utils/types";
-import Image from "next/image";
+import { Image } from "@nextui-org/react";
 import Link from "next/link";
 import ReactStars from 'react-stars'
 
@@ -18,7 +18,7 @@ function Recipes({ recipes }: IndexProps) {
         <div key={recipe?._id}>
           <Link href={ `/links/recipes/${recipe._id}` }>
             <div className="text-center py-3">
-             <Image src={recipe?.image} alt={recipe?.name} width={300} height={300} className="w-[75%] h-78 object-cover m-auto rounded-3xl" />
+             <Image src={recipe?.image} alt={recipe?.name} className="w-[75%] h-78 object-cover m-auto rounded-3xl" />
               <h3 className=" text-[20px] font-medium">{recipe?.name}</h3>
               <div className="text-[14px] flex flex-row justify-center items-center gap-[10px]">
                 <p>Rating: {recipe?.rating}</p>

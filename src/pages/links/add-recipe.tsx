@@ -3,6 +3,7 @@ import { Recipe } from "@/utils/types";
 import { useRouter } from "next/router";
 import { FormEvent, FormEventHandler, useRef } from "react";
 import Image from "next/image";
+import { Input } from "@nextui-org/react";
 
 // define props
 interface CreateProps {
@@ -13,7 +14,6 @@ const AddRecipe = (props: CreateProps) => {
     // get the next route
     const router = useRouter();
 
-    // since there is just one input we will use an uncontrolled form
     const recipename = useRef<HTMLInputElement>(null);
     const image = useRef<HTMLInputElement>(null);
     const rating = useRef<HTMLInputElement>(null);
@@ -23,6 +23,66 @@ const AddRecipe = (props: CreateProps) => {
     const servings = useRef<HTMLInputElement>(null);
     const ingredients = useRef<HTMLInputElement>(null);
     const instructions = useRef<HTMLInputElement>(null);
+
+    const form_inputs = [
+        {
+            "label": "Recipe Name",
+            "type": "text",
+            "ref": recipename,
+            "placeholder": "Enter the recipe name"
+
+        },
+        {
+            "label": "Image",
+            "type": "text",
+            "ref": image,
+            "placeholder": "Enter the image url"
+        },
+        {
+            "label": "Rating",
+            "type": "number",
+            "step": "0.1",
+            "ref": rating,
+            "placeholder": "Enter the rating"
+        },
+        {
+            "label": "Preparation Time",
+            "type": "text",
+            "ref": prep_time,
+            "placeholder": "Enter the preparation time"
+        },
+        {
+            "label": "Cooking Time",
+            "type": "text",
+            "ref": cook_time,
+            "placeholder": "Enter the cooking time"
+        },
+        {
+            "label": "Total Time",
+            "type": "text",
+            "ref": total_time,
+            "placeholder": "Enter the total time"
+        },
+        {
+            "label": "Servings",
+            "type": "number",
+            "step": "1",
+            "ref": servings,
+            "placeholder": "Enter the servings amount"
+        },
+        {
+            "label": "Ingredients",
+            "type": "text",
+            "ref": ingredients,
+            "placeholder": "Enter the ingredients separated by commas"
+        }, 
+        {
+            "label": "Instructions",
+            "type": "text",
+            "ref": instructions,
+            "placeholder": "Enter the instructions separated by periods"
+        }
+    ]
 
     // function to create new recipe
     const handleSubmit: FormEventHandler<HTMLFormElement> = async event => {
@@ -84,17 +144,24 @@ const AddRecipe = (props: CreateProps) => {
         <>
             <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">Add your own recipe</h1>
             <h2 className="text-[24px] italic tracking-tight text-gray-500 sm:text-6xl text-center">* - required</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-4 mt-4 p-4 rounded-md width-[50%] m-auto text-center">
-                <input type="text" ref = { recipename } placeholder="Recipe name *" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref = { image } placeholder="Image URL" id="image" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref={rating} placeholder="Rating" id="rating" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref={prep_time} placeholder="Prep time" id="prep_time" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref={ cook_time } placeholder="Cook time" id="cook_time" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref={total_time} placeholder="Total time" id="total_time" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref={servings} placeholder="Number of servings" id="servings" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref={ingredients} placeholder="Ingredients" id="ingredients" className="border-2 border-gray-300 rounded-md p-2" required/>
-                <input type="text" ref={ instructions } placeholder="Instructions" id="instructions" className="border-2 border-gray-300 rounded-md p-2" required/>
-                
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-4 mt-4 p-4 rounded-md w-[50%] m-auto text-center">                
+                {form_inputs.map(input => (
+                    <Input
+                        isRequired
+                        
+                        className="w-[50%]"
+                        key={input.label}
+                        type={input.type}
+                        step={input.step}
+                        label={input.label}
+                        labelPlacement="inside"
+                        ref={input.ref}
+                        placeholder={input.placeholder}
+                        variant="underlined"
+                        size="lg"
+                    />
+                ))}
+
                 <input type="submit" value="Create recipe" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />
             </form>
         </>
