@@ -1,7 +1,3 @@
-// GET API request sample: http://localhost:3000/api/recipes
-// POST API request sample: http://localhost:3000/api/recipes and include body json sample: { "name": "Recipe Name", "ingredients": ["Ingredient 1", "Ingredient 2", "Ingredient 3"], "instructions": ["Step 1: Do this", "Step 2: Do that"], "image": "https://example.com/recipe-image.jpg", "rating": 4.5, "prep_time": "30 minutes", "cook_time": "1 hour", "total_time": "1 hour 30 minutes", "servings": 4, "nutrition": { "calories": 300, "fat": 15, "carbs": 40, "protein": 10 } }
-
-
 import { NextApiRequest, NextApiResponse } from "next";
 import { connect } from "../../../utils/connection";
 import { ResponseFunctions } from "../../../utils/types"; // import type for function key below
@@ -24,6 +20,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             const { Recipe } = await connect() // connect to database
             res.json(await Recipe.create(req.body).catch(catcher));
         },
+        PUT: async (req: NextApiRequest, res: NextApiResponse) => {
+            const { Recipe } = await connect() // connect to database
+            res.json(await Recipe.updateOne(req.body).catch(catcher));
+        },
+        DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
+            const { Recipe } = await connect() // connect to database
+            res.json(await Recipe.deleteOne(req.body).catch(catcher));
+        }
     }
 
     // check if there is a response for the particular method, is so invoke it, if not response with an error

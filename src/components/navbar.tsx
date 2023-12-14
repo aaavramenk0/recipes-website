@@ -4,6 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Cookies } from 'react-cookie'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -17,6 +18,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+  
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -103,7 +106,7 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="/"
+                            href="/links/signup"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile

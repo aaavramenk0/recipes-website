@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connect } from "../../../utils/connection";
 import { ResponseFunctions } from "../../../utils/types"; // import type for function key below
-import { useCookies } from "react-cookie";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // capture request method, we type it as a key of ResponseFunction to reduce typing later
@@ -12,18 +11,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     // potential responses
     const handleCase: ResponseFunctions = {
-        GET: async (req: NextApiRequest, res: NextApiResponse) => {
+        POST: async (req: NextApiRequest, res: NextApiResponse) => {
             const { User } = await connect() // connect to database
-            res.json(await User.find({}).catch(catcher));
+            res.json(await User.create(req.body).catch(catcher));
         }
     }
-
 
     // check if there is a response for the particular method, is so invoke it, if not response with an error
     const response = handleCase[method]
     if (response) {
         response(req, res)
-
     } else res.status(400).json({
         error: "No Response for This Request"
     })

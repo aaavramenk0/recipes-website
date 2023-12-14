@@ -6,6 +6,7 @@ import Head from 'next/head'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { NextUIProvider } from '@nextui-org/react'
 import NextNProgress from 'nextjs-progressbar'
+import { CookiesProvider } from 'react-cookie'
  
 export default function App({ Component, pageProps }: AppProps) {  
   return (
@@ -17,12 +18,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <NextUIProvider>
-        <RootLayout>
-          <NextNProgress color="#467529" />
-          <Component {...pageProps} />
-        </RootLayout>
-      </NextUIProvider>
+      <CookiesProvider>
+        <NextUIProvider>
+          <RootLayout>
+            <NextNProgress color="#467529" />
+            <Component {...pageProps} />
+          </RootLayout>
+        </NextUIProvider>
+      </CookiesProvider>
     </>
   )
 }
