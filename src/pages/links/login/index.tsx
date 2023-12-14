@@ -50,11 +50,10 @@ function LoginPage({ users }: IndexProps) {
     return (
         <div>
             <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">Log in</h1>
-            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-4 mt-4 p-4 rounded-md w-[50%] m-auto text-center">
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-4 mt-4 p-4 rounded-md m-auto text-center w-full sm:w-[50%] md:w-[50%] lg:w-[30%] ">
                 {form_inputs.map(input => (
                     <Input
                         isRequired
-                        className="w-[50%]"
                         key={input.label}
                         label={input.label}
                         labelPlacement="inside"
