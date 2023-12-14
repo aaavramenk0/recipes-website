@@ -38,6 +38,7 @@ function LoginPage({ users }: IndexProps) {
         event.preventDefault();
         const user = users?.find(user => user.username === username.current?.value && user.password === password.current?.value)
         if (user) {
+            removeCookie('username', { path: '/' });
             router.push("/");
             setCookie('username', user.username, { path: '/' })
         } else {
