@@ -64,7 +64,7 @@ function LoginPage({ users }: IndexProps) {
                         size="lg"
                     />
                 ))}
-                <Button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Sign up</Button>
+                <Button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Log in</Button>
             </form>
             <h2 className="text-center">Don't have an account?<Link isBlock showAnchorIcon href="/links/signup" color="primary">Sign up</Link></h2>
             <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>

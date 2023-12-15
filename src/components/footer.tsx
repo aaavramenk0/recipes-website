@@ -21,7 +21,7 @@ export default () => {
                     width={64}
                     height={64}
                     alt='Logo of the company' />
-                <p className="leading-relaxed mt-2 text-[18px] font-black">
+                <p className="leading-relaxed mt-2 text-tiny sm:text-medium font-black">
                     Taste the World: Your Culinary Journey Begins Here!
                 </p>
             </div>
