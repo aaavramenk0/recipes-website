@@ -22,13 +22,13 @@ export default function NavbarPage() {
 
             <NavbarContent className="sm:hidden pr-4" justify="center">
                 <NavbarBrand>
-                    <Image src = {logo} alt="Logo"></Image>
+                    <Link href="/"><Image src = {logo} alt="Logo"></Image> </Link>
                 </NavbarBrand>
             </NavbarContent>
 
             <NavbarContent className="hidden sm:flex gap-8" justify="center">
                 <NavbarBrand>
-                    <Image src = {logo} alt="Logo"></Image>
+                    <Link href="/"><Image src = {logo} alt="Logo"></Image> </Link>
                 </NavbarBrand>
                 
                 {menuItems.map((item, index) => (

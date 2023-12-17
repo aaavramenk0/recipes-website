@@ -22,7 +22,7 @@ function Recipes({ recipes }: IndexProps) {
               <h3 className=" text-[20px] font-medium">{recipe?.name}</h3>
               <div className="text-[14px] flex flex-row justify-center items-center gap-[10px]">
                 <p>Rating: {recipe?.rating}</p>
-                <ReactStars edit={false} count={5} value={Math.round(recipe?.rating)} size={20} color2={'#ffd700'} />
+                <ReactStars edit={false} half={true} count={5} value={Math.round(recipe?.rating)} size={20} color2={'#ffd700'} />
               </div>
             </div>
           </Link>
