@@ -5,32 +5,35 @@ import { usePathname } from "next/navigation"
 import { Router, useRouter } from "next/router"
 
 export default function NavbarPage() {
+    const pathname = usePathname();
+
     const menuItems = [
-        { label: "Home", href: "/", isActive: true},
-        { label: "Recipe Catalog", href: "/links/recipes", isActive: false },
-        { label: "Our Authors", href: "/links/authors", isActive: false },
-        { label: "Add your recipe", href: "/links/add-recipe", isActive: false }
+        { label: "Home", href: "/"},
+        { label: "Recipe Catalog", href: "/links/recipes"},
+        { label: "Our Authors", href: "/links/authors"},
+        { label: "Add your recipe", href: "/links/add-recipe"}
     ]
+
     return (
         <Navbar isBordered>
             <NavbarContent className="sm:hidden" justify="start">
                 <NavbarMenuToggle />
             </NavbarContent>
 
-            <NavbarContent className="sm:hidden pr-3" justify="center">
+            <NavbarContent className="sm:hidden pr-4" justify="center">
                 <NavbarBrand>
                     <Image src = {logo} alt="Logo"></Image>
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarContent className="hidden sm:flex gap-8" justify="center">
                 <NavbarBrand>
                     <Image src = {logo} alt="Logo"></Image>
                 </NavbarBrand>
                 
                 {menuItems.map((item, index) => (
-                    <NavbarItem isActive={item.isActive} key={index}>
-                        <Link color="foreground" href={item.href}>
+                    <NavbarItem isActive={pathname == `${item.href}` ? true : false} key={index}>
+                        <Link color="foreground" href={item.href} className="text-[16px]">
                             {item.label}
                         </Link>
                     </NavbarItem>
@@ -48,7 +51,7 @@ export default function NavbarPage() {
             <NavbarMenu>
                 {menuItems.map((item, index) => (
                     <NavbarMenuItem key={`${item}-${index}`}>
-                        <Link className="w-full" color={index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"} href={item.href} size="lg">{item.label}</Link>
+                        <Link className="w-full" color="foreground" href={item.href} size="lg">{item.label}</Link>
                     </NavbarMenuItem>
                 ))}
             </NavbarMenu>
