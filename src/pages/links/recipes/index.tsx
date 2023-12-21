@@ -2,6 +2,7 @@ import { Recipe } from "@/utils/types";
 import { Image } from "@nextui-org/react";
 import Link from "next/link";
 import ReactStars from 'react-stars'
+import { Rating } from 'react-simple-star-rating'
 
 // define the components props
 interface IndexProps {
@@ -22,7 +23,7 @@ function Recipes({ recipes }: IndexProps) {
               <h3 className=" text-[20px] font-medium">{recipe?.name}</h3>
               <div className="text-[14px] flex flex-row justify-center items-center gap-[10px]">
                 <p>Rating: {recipe?.rating}</p>
-                <ReactStars edit={false} half={true} count={5} value={Math.round(recipe?.rating)} size={20} color2={'#ffd700'} />
+                <Rating initialValue={recipe?.rating} readonly size={20} allowFraction />
               </div>
             </div>
           </Link>

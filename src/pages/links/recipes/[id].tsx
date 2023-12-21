@@ -2,6 +2,7 @@ import { Recipe } from "@/utils/types"
 import { Link } from "@nextui-org/react"
 import Image from "next/image"
 import { useState } from "react"
+import { Rating } from "react-simple-star-rating"
 import ReactStars from "react-stars"
 
 // define Prop Interface
@@ -21,16 +22,14 @@ function RecipePage(props: Props) {
             <h1 className="text-[48px] font-bold tracking-tight text-gray-900 sm:text-6xl text-center">{recipe?.name}</h1>
             <div className="text-[20px] flex flex-row justify-center items-center gap-[10px] mt-[-10px]">
                 <p>Rating: {recipe?.rating}</p>
-                <ReactStars edit={false} count={5} value={Math.round(recipe?.rating)} size={30} color2={'#ffd700'} />
+                <Rating initialValue={recipe?.rating} readonly size={20} allowFraction />
             </div>
 
-            {/* <h2 className="text-[30px] text-center font-bold">Ingredients for { recipe?.servings } servings</h2> */}
             <h2 className="text-[30px] text-center font-bold">Ingredients</h2>
-            {/* <p className="text-[14px] text-center font-normal italic">(Click on product to find it in Walmart)</p> */}
             <ul className="text-[20px] leading-10 text-center">
                 {recipe?.ingredients.map((ingredient, index) => (
                     <li key={index}>
-                        <Link isExternal showAnchorIcon color="foreground" size="lg" isBlock href={`https://www.walmart.com/search/?cat_id=0&query=${ingredient}`}>{ingredient}</Link>
+                        <Link isExternal showAnchorIcon color="foreground" size="lg" isBlock href={`https://www.walmart.com/search/?cat_id=0&query=${ingredient}`}>Ingredient</Link>
                     </li>
                 ))}
             </ul> 
