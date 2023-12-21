@@ -15,6 +15,7 @@ const AddRecipe = (props: CreateProps) => {
     const router = useRouter();
 
     const recipename = useRef<HTMLInputElement>(null);
+    const author = useRef<HTMLInputElement>(null);
     const image = useRef<HTMLInputElement>(null);
     const rating = useRef<HTMLInputElement>(null);
     const prep_time = useRef<HTMLInputElement>(null);
@@ -31,6 +32,12 @@ const AddRecipe = (props: CreateProps) => {
             "ref": recipename,
             "placeholder": "Enter the recipe name"
 
+        },
+        {
+            "label": "Author",
+            "type": "text",
+            "ref": author,
+            "placeholder": "Enter the author name"
         },
         {
             "label": "Image",
@@ -91,7 +98,14 @@ const AddRecipe = (props: CreateProps) => {
         // construct new recipe, create variable, check it to pass type checks
         let recipe: Recipe = {
             name: "",
-            ingredients: [],
+            author: "",
+            ingredients: [
+                {
+                    name: "",
+                    amount: 0,
+                    unit: ""
+                }
+            ],
             instructions: [],
             image: "",
             rating: 0,
@@ -109,9 +123,16 @@ const AddRecipe = (props: CreateProps) => {
         if (recipename.current !== null || image.current !== null) {
             recipe = {
                 // ! - telling the TypeScript that it can trust me and the statement will not be null
-                //? - checking if the value is there
+                // ? - checking if the value is there
                 name: recipename.current?.value!, 
-                ingredients: ingredients.current?.value.split(",")!,
+                author: author.current?.value!,
+                ingredients: [
+                    {
+                        name: "",
+                        amount: 0,
+                        unit: ""
+                    }
+                ],
                 instructions: instructions.current?.value.split(".")!,
                 image: image.current?.value!,
                 rating: parseFloat(rating.current?.value!),
@@ -146,18 +167,35 @@ const AddRecipe = (props: CreateProps) => {
             <h2 className="text-[24px] italic tracking-tight text-gray-500 sm:text-6xl text-center">* - required</h2>
             <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center gap-4 mt-4 p-4 rounded-md m-auto text-center w-full sm:w-[60%] md:w-[50%] lg:w-[50%] ">                
                 {form_inputs.map(input => (
-                    <Input
-                        isRequired
-                        key={input.label}
-                        type={input.type}
-                        step={input.step}
-                        label={input.label}
-                        labelPlacement="inside"
-                        ref={input.ref}
-                        placeholder={input.placeholder}
-                        variant="underlined"
-                        size="lg"
-                    />
+                    input.ref != ingredients
+                        ?
+                        <Input
+                            isRequired
+                            key={input.label}
+                            type={input.type}
+                            step={input.step}
+                            label={input.label}
+                            labelPlacement="inside"
+                            ref={input.ref}
+                            placeholder={input.placeholder}
+                            variant="underlined"
+                            size="lg"
+                        /> 
+                        :
+                        <div>
+                            <Input
+                                isRequired
+                                key={input.label}
+                                type={input.type}
+                                step={input.step}
+                                label={input.label}
+                                labelPlacement="outside"
+                                ref={input.ref}
+                                placeholder={input.placeholder}
+                                variant="underlined"
+                                size="lg"
+                            />
+                        </div>
                 ))}
 
                 <input type="submit" value="Create recipe" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />

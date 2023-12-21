@@ -33,12 +33,15 @@ export const connect = async () => {
     // recipes schema
     const recipeSchema = new mongoose.Schema({
         name: String,
-        author: {
-            name: String,
-            email: String
-        },
+        author: String,
         description: String,
-        ingredients: Array,
+        ingredients: [
+            {
+                name: String,
+                amount: Number,
+                unit: String
+            }
+        ],
         instructions: Array,
         image: String,
         rating: Number,
@@ -46,12 +49,7 @@ export const connect = async () => {
         cook_time: String,
         total_time: String,
         servings: Number,
-        nutrition: {
-            calories: Number,
-            fat: Number,
-            carbs: Number,
-            protein: Number
-        }
+
     })
 
     // recipe model

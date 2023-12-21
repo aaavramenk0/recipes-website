@@ -18,7 +18,14 @@ export interface User {
 export interface Recipe {
     _id?: string
     name: string
-    ingredients: Array<String>
+    author: string
+    ingredients: [
+        {
+            name: string
+            amount: number
+            unit: string
+        }
+    ]
     instructions: Array<String>
     image: string
     rating: number
